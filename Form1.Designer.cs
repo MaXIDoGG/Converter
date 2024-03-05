@@ -76,6 +76,7 @@
             trackBar1.Size = new Size(298, 45);
             trackBar1.TabIndex = 4;
             trackBar1.Value = 10;
+            trackBar1.Scroll += new System.EventHandler(trackBar1_Scroll);
             // 
             // trackBar2
             // 
@@ -86,6 +87,7 @@
             trackBar2.Size = new Size(298, 45);
             trackBar2.TabIndex = 5;
             trackBar2.Value = 2;
+            trackBar2.Scroll += new System.EventHandler(trackBar2_Scroll);
             // 
             // numericUpDown1
             // 
@@ -96,6 +98,7 @@
             numericUpDown1.Size = new Size(32, 23);
             numericUpDown1.TabIndex = 6;
             numericUpDown1.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown1.ValueChanged += new System.EventHandler(numericUpDown1_ValueChanged);
             // 
             // numericUpDown2
             // 
@@ -106,6 +109,7 @@
             numericUpDown2.Size = new Size(32, 23);
             numericUpDown2.TabIndex = 7;
             numericUpDown2.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            numericUpDown2.ValueChanged += new System.EventHandler(numericUpDown2_ValueChanged);
             // 
             // label1
             // 
@@ -139,23 +143,27 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(38, 20);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += new System.EventHandler(ExitToolStripMenuItem_Click);
             // 
             // historyToolStripMenuItem
             // 
             historyToolStripMenuItem.Name = "historyToolStripMenuItem";
             historyToolStripMenuItem.Size = new Size(57, 20);
             historyToolStripMenuItem.Text = "History";
+            historyToolStripMenuItem.Click += new System.EventHandler(HistoryToolStripMenuItem1_Click);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new Size(52, 20);
             aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += new System.EventHandler(AboutToolStripMenuItem_Click);
             // 
             // textBox1
             // 
             textBox1.Location = new Point(12, 27);
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(328, 23);
             textBox1.TabIndex = 13;
             // 
@@ -163,6 +171,7 @@
             // 
             textBox2.Location = new Point(12, 114);
             textBox2.Name = "textBox2";
+            textBox1.ReadOnly = true;
             textBox2.Size = new Size(328, 23);
             textBox2.TabIndex = 14;
             // 
@@ -173,9 +182,10 @@
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 15;
-            button1.Tag = "A";
+            button1.Tag = "10";
             button1.Text = "A";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button_Click;
             // 
             // button2
             // 
@@ -184,9 +194,10 @@
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 16;
-            button2.Tag = "B";
+            button2.Tag = "11";
             button2.Text = "B";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button_Click;
             // 
             // button3
             // 
@@ -195,9 +206,10 @@
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 17;
-            button3.Tag = "C";
+            button3.Tag = "12";
             button3.Text = "C";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button_Click;
             // 
             // button4
             // 
@@ -206,9 +218,10 @@
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 18;
-            button4.Tag = "D";
+            button4.Tag = "13";
             button4.Text = "D";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button_Click;
             // 
             // button5
             // 
@@ -220,6 +233,7 @@
             button5.Tag = "7";
             button5.Text = "7";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button_Click;
             // 
             // button6
             // 
@@ -231,6 +245,7 @@
             button6.Tag = "8";
             button6.Text = "8";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button_Click;
             // 
             // button7
             // 
@@ -242,6 +257,7 @@
             button7.Tag = "9";
             button7.Text = "9";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button_Click;
             // 
             // button8
             // 
@@ -250,9 +266,10 @@
             button8.Name = "button8";
             button8.Size = new Size(75, 23);
             button8.TabIndex = 22;
-            button8.Tag = "E";
+            button8.Tag = "14";
             button8.Text = "E";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button_Click;
             // 
             // button9
             // 
@@ -264,6 +281,7 @@
             button9.Tag = "4";
             button9.Text = "4";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button_Click;
             // 
             // button10
             // 
@@ -275,6 +293,7 @@
             button10.Tag = "5";
             button10.Text = "5";
             button10.UseVisualStyleBackColor = true;
+            button10.Click += button_Click;
             // 
             // button11
             // 
@@ -286,6 +305,7 @@
             button11.Tag = "6";
             button11.Text = "6";
             button11.UseVisualStyleBackColor = true;
+            button11.Click += button_Click;
             // 
             // button12
             // 
@@ -294,9 +314,10 @@
             button12.Name = "button12";
             button12.Size = new Size(75, 23);
             button12.TabIndex = 26;
-            button12.Tag = "F";
+            button12.Tag = "15";
             button12.Text = "F";
             button12.UseVisualStyleBackColor = true;
+            button12.Click += button_Click;
             // 
             // button13
             // 
@@ -308,6 +329,7 @@
             button13.Tag = "1";
             button13.Text = "1";
             button13.UseVisualStyleBackColor = true;
+            button13.Click += button_Click;
             // 
             // button14
             // 
@@ -319,6 +341,7 @@
             button14.Tag = "2";
             button14.Text = "2";
             button14.UseVisualStyleBackColor = true;
+            button14.Click += button_Click;
             // 
             // button15
             // 
@@ -330,6 +353,7 @@
             button15.Tag = "3";
             button15.Text = "3";
             button15.UseVisualStyleBackColor = true;
+            button15.Click += button_Click;
             // 
             // button16
             // 
@@ -338,9 +362,10 @@
             button16.Name = "button16";
             button16.Size = new Size(75, 23);
             button16.TabIndex = 30;
-            button16.Tag = "CE";
+            button16.Tag = "18";
             button16.Text = "CE";
             button16.UseVisualStyleBackColor = true;
+            button16.Click += button_Click;
             // 
             // button17
             // 
@@ -352,6 +377,7 @@
             button17.Tag = "0";
             button17.Text = "0";
             button17.UseVisualStyleBackColor = true;
+            button17.Click += button_Click;
             // 
             // button18
             // 
@@ -359,9 +385,10 @@
             button18.Name = "button18";
             button18.Size = new Size(75, 23);
             button18.TabIndex = 32;
-            button18.Tag = ".";
+            button18.Tag = "16";
             button18.Text = ".";
             button18.UseVisualStyleBackColor = true;
+            button18.Click += button_Click;
             // 
             // button19
             // 
@@ -370,9 +397,10 @@
             button19.Name = "button19";
             button19.Size = new Size(75, 23);
             button19.TabIndex = 33;
-            button19.Tag = "BS";
+            button19.Tag = "17";
             button19.Text = "BS";
             button19.UseVisualStyleBackColor = true;
+            button19.Click += button_Click;
             // 
             // button20
             // 
@@ -380,10 +408,10 @@
             button20.Name = "button20";
             button20.Size = new Size(75, 23);
             button20.TabIndex = 34;
-            button20.Tag = "Execute";
+            button20.Tag = "19";
             button20.Text = "Execute";
             button20.UseVisualStyleBackColor = true;
-            button20.Click += button20_Click;
+            button20.Click += button_Click;
             // 
             // Form1
             // 

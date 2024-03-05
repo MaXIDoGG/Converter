@@ -33,7 +33,7 @@ public struct Record
     /// <returns></returns>
     public override string ToString()
     {
-        return $"{number1} ({p1} с.сч.) = {number2} ({p2} с.сч.)";
+        return $"{number1} ({p1} с.сч.) = {number2} ({p2} с.сч.)\r\n";
     }
 }
 
@@ -63,7 +63,7 @@ internal class History
     {
         get
         {
-            if (i < 0 || i >= L.Count - 1)
+            if (i < 0 || i >= L.Count)
             {
                 throw new Exception("Index out of range.");
             }

@@ -35,7 +35,7 @@ namespace Converter
 
             textBox2.Text = "0";
 
-            this.UpdateButtons();
+            UpdateButtons();
         }
 
         private void Do(int j)
@@ -53,7 +53,7 @@ namespace Converter
             }
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
             Button but = (Button)sender;
 
@@ -78,20 +78,20 @@ namespace Converter
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             numericUpDown1.Value = trackBar1.Value;
-            this.UpdateP1();
+            UpdateP1();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             trackBar1.Value = Convert.ToByte(numericUpDown1.Value);
-            this.UpdateP1();
+            UpdateP1();
         }
 
         private void UpdateP1()
         {
-            label3.Text = "Основание с. сч. исходного числа " + trackBar1.Value;
+            label1.Text = "Основание с. сч. исходного числа " + trackBar1.Value;
             ctl.Pin = trackBar1.Value;
-            this.UpdateButtons();
+            UpdateButtons();
             textBox1.Text = ctl.Do(18);
             textBox2.Text = "0";
         }
@@ -99,17 +99,16 @@ namespace Converter
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             numericUpDown2.Value = trackBar2.Value;
-            this.UpdateP2();
+            UpdateP2();
         }
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             trackBar2.Value = Convert.ToByte(numericUpDown2.Value);
-            this.UpdateP2();
+            UpdateP2();
         }
         private void UpdateP2()
         {
             ctl.Pout = trackBar2.Value;
-            //Пересчитать результат. 
             textBox2.Text = ctl.Do(19);
             label3.Text = "Основание с. сч. результата " + trackBar2.Value;
         }
@@ -119,50 +118,47 @@ namespace Converter
             Close();
         }
 
-        private void AboutToolStripMenuItem_Click(Object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //AboutBox1 a = new AboutBox1();
-            //a.show();
+            Form3 a = new Form3();
+            a.Show();
         }
 
-        private void HistoryToolStripMenuItem1_Click(Object sender, EventArgs e)
+        private void HistoryToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Form2 history = new Form2();
-            //history.show();
+            Form2 history = new Form2();
+            history.Show();
             if (ctl.his.Count() == 0)
             {
-                //history.textBox1.Appendtext("Empty");
+                history.textBox1.AppendText("Empty");
                 return;
             }
 
             for (int i = 0; i < ctl.his.Count(); i++)
             {
-                //history.textBox1.Appendtext(ctl.his[i].ToString());
+                history.textBox1.AppendText(ctl.his[i].ToString());
             }
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             int i = -1;
-            if (e.KeyChar >= 'A' && e.KeyChar <= 'F') i = (int)e.KeyChar - 'A' + 10;
-            if (e.KeyChar >= 'a' && e.KeyChar <= 'f') i = (int)e.KeyChar - 'a' + 10;
-            if (e.KeyChar >= '0' && e.KeyChar <= '9') i = (int)e.KeyChar - '0';
+            if (e.KeyChar >= 'A' && e.KeyChar <= 'F') i = e.KeyChar - 'A' + 10;
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'f') i = e.KeyChar - 'a' + 10;
+            if (e.KeyChar >= '0' && e.KeyChar <= '9') i = e.KeyChar - '0';
             if (e.KeyChar == '.') i = 16;
-            if ((int)e.KeyChar == 8) i = 17;
-            if ((int)e.KeyChar == 13) i = 19;
+            if (e.KeyChar == 8) i = 17;
+            if (e.KeyChar == 13) i = 19;
             if ((i < ctl.Pin) || (i >= 16)) Do(i);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
-                //Клавиша Delete.
                 Do(18);
             if (e.KeyCode == Keys.Execute)
-                //Клавиша Execute Separator.
                 Do(19);
             if (e.KeyCode == Keys.Decimal)
-                //Клавиша Decimal.
                 Do(16);
         }
     }

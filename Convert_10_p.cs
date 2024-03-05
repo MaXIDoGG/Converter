@@ -25,12 +25,15 @@ class Convert_10_p
     public static string int_to_P(int n, int p)
     {
         string result = "";
-        while (n > p)
+
+        while (n >= p)//пока не достигли последней операции деления
         {
-            int remainder = n % p; // остаток от деления на основание с.с.
-            result.Insert(0, int_to_Char(remainder).ToString()); // запись в обратном порядке
-            n = n / p;
+            int remainder = n % p;//отсаток от числа
+            result = result.Insert(0, int_to_Char(remainder).ToString());//вставляем проебразованные остатки с конца
+            n = n / p;//переходим к след. разряду
         }
+
+        result = result.Insert(0, int_to_Char(n).ToString());//добавляем последний остаток
         return result;
     }
 
@@ -43,7 +46,7 @@ class Convert_10_p
     /// <returns></returns>
     public static string flt_to_P(double n, int p, int c)
     {
-        string result = "";
+        string result = "0";
         for (int i = 0; i < c; i++) // цикл до треб. точности
         {
             n = n * p; // умножение на основание с.с.
