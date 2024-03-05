@@ -9,7 +9,7 @@
         //Число разрядов в дробной части результата.
         const int accuracy = 10;
 
-        //public history his = new history();
+        public History his = new History();
 
         //Объект редактора
         public Editor ed = new Editor();
@@ -40,7 +40,7 @@
                 double r = Converter_p_10.Do(ed.Number, (Int16)Pin);
                 string res = Convert_10_p.Do(r, (Int32)Pout, acc());
                 St = State.Transform;
-                //his.Addrecord(Pin, Pout, ed.Number, res);
+                his.AddRecord(Pin, Pout, ed.Number, res);
                 return res;
             }
             else
